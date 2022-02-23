@@ -25,6 +25,13 @@ fetch(endpoint)
 
 setTimeout(() => console.log(cities), 1000);
 
+function findMatches(wordToMatch, cities) {
+  return cities.filter(place => {
+    const regex = new RegExp(wordToMatch, 'gi');  //g - global, i - case insensitive
+    return place.city.match(regex) || place.state.match(regex)
+  });
+}
+
 </script>
 </body>
 </html>
